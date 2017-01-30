@@ -50,11 +50,18 @@ clf <- xgb.train(   params              = param,
                     early_stop_round    = 20,
                     watchlist           = watchlist,
                     maximize            = TRUE)
+## Traing Result
+## eval-auc:0.772939	train-auc:0.814457 
+
 ## output the confusion matrix and Statistics
 library(caret)
 xgbval <- predict(clf, dval)
 xgbval <- ifelse(xgbval > 0.5,1,0)
 confusionMatrix(xgbval, train$target[-train_ind])
+#         Reference
+#Prediction     0     1
+#         0 32141  7748
+#         1  1275  2406
 
 ####We can also use mlr to do random (or grid) search to tune parameters of xgboost
 ####find the parameters with least error as our final parameters for training
