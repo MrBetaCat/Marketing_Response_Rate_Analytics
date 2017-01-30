@@ -22,8 +22,10 @@ SHLIB_OPENMP_CXXFLAGS=-fopenmp
 SHLIB_OPENMP_FCFLAGS=-fopenmp
 SHLIB_OPENMP_FFLAGS=-fopenmp
 
-Make sure you adjust the version directory and the major version on the executable file names to match what homebrew installed in the last step. 
-Attention: many suggestions online didn’t include the 3rd line “CXX1X = /usr/local/Cellar/gcc/6.1.0/bin/g++-6”, but I find that this line is necessary to avoid xgboost installation error in R. 
+Make sure you adjust the version directory and the major version on the executable file names to match what homebrew installed
+in the last step. 
+Attention: many suggestions online didn’t include the 3rd line “CXX1X = /usr/local/Cellar/gcc/6.1.0/bin/g++-6”, but I find
+that this line is necessary to avoid xgboost installation error in R. 
 
    If there is no ~/.R/Makevars
    First, create one:
