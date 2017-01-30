@@ -1,4 +1,4 @@
-## Springleaf_marketing_response
+## Marketing response rate analytics
 This project is using xgboost to predict customer response rate when given a direct mail offer and further doing some business intelligence analytics.  
 The data is from a previous Kaggle competition: Springleaf Marketing Response.
 In that competition, attendees are challenged to construct new meta-variables and employ feature-selection methods to approach the daunting wide dataset.  
