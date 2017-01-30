@@ -50,33 +50,18 @@ clf <- xgb.train(   params              = param,
                     early_stop_round    = 20,
                     watchlist           = watchlist,
                     maximize            = TRUE)
+#running results:
+#eval-auc:0.772939	train-auc:0.814457
 
-cat("making predictions in batches due to 8GB memory limitation\n")
-submission <- data.frame(ID=test$ID)
-submission$target <- NA 
+##The following code is for final testing data prediction
+# Making predictions in batches if the computer has memory limitation
+predict_res <- data.frame(ID=test$ID)
+predict_res$target <- NA 
 for (rows in split(1:nrow(test), ceiling((1:nrow(test))/10000))) {
-  submission[rows, "target"] <- predict(clf, data.matrix(test[rows, feature.names]))
+  predict_res[rows, "target"] <- predict(clf, data.matrix(test[rows, 2:ncol(train)-1]))
 }
+#Otherwise
+#predict_res <- predict(clf, data.matrix(test[rows, 2:ncol(train)-1]))
 
-cv_res <- xgb.cv(params              = param,
-                 data                = dtrain, 
-                 nrounds             = 10, 
-                 nfold = 5)
-
-
-
-
-#dtest <- xgb.DMatrix(data = data.matrix(test[2:ncol(test)]))
-#sampling train to get around 8GB memory limitations
-ind   <- sample(nrow(train), 70000)
-train <- train[ind, ]
-ind   <- sample(rep(1:2, 35000))
-
-feature.names <- names(train)[2:ncol(train)-1]
-dtrain <- xgb.DMatrix(data.matrix(train[ind==1, feature.names]), label=train$target[ind==1])
-
-cat("sampling validation\n")
-dval   <- xgb.DMatrix(data.matrix(train[ind==2, feature.names]), label=train$target[ind==2])
-
-cat("saving the submission file\n")
-write_csv(submission, "sub_xgboost_1.csv")
+## Output the final testing data prediction results into csv file
+write_csv(predict_res, "response_rate_test_res.csv")
