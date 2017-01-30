@@ -1,0 +1,39 @@
+Using OpenMP with R packages in OS X
+
+Mainly refer the link below:
+https://asieira.github.io/using-openmp-with-r-packages-in-os-x.html
+https://github.com/dmlc/xgboost/issues/1136
+
+1. Install homebrew
+2. Install gcc:
+   brew install gcc --without-multilib
+3. create (or edit) ~/.R/Makevars to include the following:
+
+CC=/usr/local/Cellar/gcc/6.1.0/bin/gcc-6
+CXX=/usr/local/Cellar/gcc/6.1.0/bin/g++-6
+CXX1X = /usr/local/Cellar/gcc/6.1.0/bin/g++-6
+SHLIB_CXXLD=/usr/local/Cellar/gcc/6.1.0/bin/g++-6
+FC=/usr/local/Cellar/gcc/6.1.0/bin/gfortran-6
+F77=/usr/local/Cellar/gcc/6.1.0/bin/gfortran-6
+MAKE=make -j8
+
+SHLIB_OPENMP_CFLAGS=-fopenmp
+SHLIB_OPENMP_CXXFLAGS=-fopenmp
+SHLIB_OPENMP_FCFLAGS=-fopenmp
+SHLIB_OPENMP_FFLAGS=-fopenmp
+
+Make sure you adjust the version directory and the major version on the executable file names to match what homebrew installed in the last step. 
+Attention: many suggestions online didn’t include the 3rd line “CXX1X = /usr/local/Cellar/gcc/6.1.0/bin/g++-6”, but I find that this line is necessary to avoid xgboost installation error in R. 
+
+   If there is no ~/.R/Makevars
+   First, create one:
+   mkdir ~/.R
+   touch ~/.R/Makevars; open ~/.R/Makevars
+4. Install R packages from source:
+Use the following command in Rstudio or R:
+install.packages("xgboost", repos="http://dmlc.ml/drat/", type = "source")
+
+
+If want to use OpenMP in Python, following the link below:
+https://www.ibm.com/developerworks/community/blogs/jfp/entry/Installing_XGBoost_on_Mac_OSX?lang=en
+
