@@ -9,7 +9,7 @@ The programming language is R.
 
 I. Because xgboost usually takes longer time than traditional machine learning models, we organized our successful configuration steps in file use_openMP_in_R.txt. You can find how to succeed in enabling openMP when compiling openMP supported R packages especially the “xgboost” package.
 
-II. Codes with detailed comments are included in file response_rate.R.   
+II. File response_rate.R contains codes and detailed comments.   
 1. Employed xgboost to determine which customers will respond to a direct mail offer.   
 2. Enabled parallel-version xgboost to accelerate the training and testing process.  
 3. Performed xgboost parameters tuning by grid/random search to achieve better accuracy. 
