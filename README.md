@@ -1,6 +1,7 @@
 ## Marketing Response Rate Analytics
 This project is using xgboost to predict customer response rate when given a direct mail offer and further doing some business intelligence analytics.  
-The data is from a previous Kaggle competition: Springleaf Marketing Response.
+The data is from a previous Kaggle competition: Springleaf Marketing Response.  
+There are 145231 records as training data and 145232 records as tesing data. The total number of features are 1933. The targe variable is binary (0/1).  
 In that competition, attendees are challenged to construct new meta-variables and employ feature-selection methods to approach the daunting wide dataset.  
 In our project, except prediction part, we did further analysis to evaluate the performance of different xgboost versions and maximize the profitability 
 by using the expected value framework when considering different profit&cost or given fixed budget.  
