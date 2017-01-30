@@ -16,3 +16,6 @@ There are three parts:
 You can find how to succeed in enabling openMP when compiling openMP supported R packages especially the “xgboost” package.
 
 2. 
+
+
+### This repository will keep updating!
