@@ -50,7 +50,10 @@ clf <- xgb.train(   params              = param,
                     early_stop_round    = 20,
                     watchlist           = watchlist,
                     maximize            = TRUE)
-
+#running results:
+#eval-auc:0.772939	train-auc:0.814457
+  
+  
 cat("making predictions in batches due to 8GB memory limitation\n")
 submission <- data.frame(ID=test$ID)
 submission$target <- NA 
