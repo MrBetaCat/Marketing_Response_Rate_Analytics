@@ -36,6 +36,6 @@ Use the following command in Rstudio or R:
 install.packages("xgboost", repos="http://dmlc.ml/drat/", type = "source")
 
 
-If want to use OpenMP in Python, following the link below:
+If you want to use OpenMP in Python, following the link below:
 https://www.ibm.com/developerworks/community/blogs/jfp/entry/Installing_XGBoost_on_Mac_OSX?lang=en
 
