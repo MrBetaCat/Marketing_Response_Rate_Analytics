@@ -14,9 +14,10 @@ The programming languages in this project is R.
 1) Because XGBoost usually takes longer time than traditional machine learning models, we organized our successful configuration steps in file use_openMP_in_R.txt. You can find how to succeed in enabling openMP when compiling openMP supported R packages especially the “XGBoost” package.
 
 ### Project Structure:  
-/-------R Code  
+/-------File List  
 &ensp;|&ensp;&ensp;&ensp;&ensp;|--------use_openMP_in_R.txt  
-&ensp;|&ensp;&ensp;&ensp;&ensp;|--------response_rate.R  
+&ensp;|-------R Code   
+&ensp;|&ensp;&ensp;&ensp;&ensp;|--------response_rate.R    
 
 ### Code Notes:
 1) response_rate.R : predict cunstomer response by XGBoost with parament tuning.
